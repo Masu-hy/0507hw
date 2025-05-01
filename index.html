@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatGPT Clone</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-container">
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <i class="fa-regular fa-pen-to-square"></i>
+      <span>ChatGPT</span>
+      <i class="fa-solid fa-chevron-down"></i>
+    </div>
+    <div class="auth-buttons">
+      <button class="login-btn">登入</button>
+      <button class="signup-btn">註冊</button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="welcome-container">
+      <h1 class="welcome-text">What can I help with?</h1>
+
+      <div class="chat-input-container">
+        <textarea class="chat-input" placeholder="Ask anything"></textarea>
+        <div class="input-buttons">
+          <button class="input-btn"><i class="fa-solid fa-paperclip"></i> 附加</button>
+          <button class="input-btn"><i class="fa-solid fa-globe"></i> 搜尋</button>
+          <button class="input-btn"><i class="fa-regular fa-lightbulb"></i> 推理</button>
+          <button class="voice-btn"><i class="fa-solid fa-microphone"></i> 語音</button>
+        </div>
+      </div>
+
+      <div class="feature-buttons">
+        <button class="feature-btn"><i class="fa-regular fa-file-lines"></i> 總結文字</button>
+        <button class="feature-btn"><i class="fa-regular fa-lightbulb"></i> 幫我寫</button>
+        <button class="feature-btn"><i class="fa-solid fa-code"></i> 程式碼</button>
+        <button class="feature-btn"><i class="fa-solid fa-image"></i> 分析圖像</button>
+        <button class="feature-btn"><i class="fa-regular fa-lightbulb"></i> 制訂計畫</button>
+        <button class="feature-btn more-btn"><i class="fa-solid fa-ellipsis"></i> 更多</button>
+      </div>
+    </div>
+
+    <!-- Welcome Modal (Will show automatically) -->
+    <div class="modal" id="welcomeModal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="modal-header">
+          <div class="image-collage">
+            <div class="collage-item yellow-bg"></div>
+            <div class="collage-item quote">
+              <p>happiness is all around</p>
+              <p>morning is beauty</p>
+              <p>joy can be found in the smallest of moments</p>
+              <p>today is a little brighter</p>
+              <p>pleasures abound</p>
+              <p>there is love</p>
+            </div>
+            <div class="collage-item blue-bg">
+              <h3> Serata Vino e Pittur </h3>
+              <div class="wine-cheese">
+                <div class="wine-glass"></div>
+                <div class="cheese"></div>
+              </div>
+              <p class="time">19:00-22:00</p>
+            </div>
+            <div class="collage-item profile-img"></div>
+            <div class="collage-item blob-img"></div>
+            <div class="center-video">
+              <div style="background-color: #333; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; color: white; border-radius: 8px;">
+                Video Placeholder
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-body">
+          <h2>用圖像為你的想法賦予生命</h2>
+          <p>建立一個免費帳戶來製插圖、圖表、漫畫等。</p>
+          <button class="login-modal-btn">登入</button>
+          <button class="signup-modal-btn">免費註冊</button>
+          <p class="stay-logged-in">保持登出狀態</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>傳送訊息至 ChatGPT・即表示你同意我們的<a href="#">條款</a>，並已閱讀我們的<a href="#">《隱私權政策》</a>。</p>
+  </footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
