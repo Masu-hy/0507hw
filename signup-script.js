@@ -1,5 +1,29 @@
 document.addEventListener('DOMContentLoaded', function() {
     // 獲取DOM元素
+    const voiceBtn = document.querySelector('.voice-btn');
+    if (voiceBtn) {
+        voiceBtn.innerHTML = '<i class="fa-solid fa-waveform"></i> 語音';
+    }
+    // 在文件的 DOMContentLoaded 事件處理函數中添加
+    const chatInput = document.querySelector('.chat-input');
+    if (chatInput) {
+        // 自動調整 textarea 高度
+        chatInput.addEventListener('input', function() {
+            this.style.height = 'auto';
+            const newHeight = Math.max(60, this.scrollHeight);
+            this.style.height = newHeight + 'px';
+
+            // 確保按鈕始終在底部
+            const buttonsContainer = document.querySelector('.input-buttons-container');
+            if (buttonsContainer) {
+                buttonsContainer.style.bottom = '10px';
+            }
+        });
+
+        // 初始化高度
+        chatInput.style.height = 'auto';
+        chatInput.style.height = (chatInput.scrollHeight) + 'px';
+    }
     const signupForm = document.getElementById('signupForm');
     const emailInput = document.getElementById('email');
     const passwordInput = document.getElementById('password');

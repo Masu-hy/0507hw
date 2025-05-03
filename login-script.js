@@ -75,19 +75,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // 社交登入按鈕
     if (googleLoginBtn) {
         googleLoginBtn.addEventListener('click', function() {
-            openSocialLoginModal('Google', 'https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg', '#4285F4');
+            openSocialLoginModal('Google', 'google.png', '#4285F4');
         });
     }
 
     if (microsoftLoginBtn) {
         microsoftLoginBtn.addEventListener('click', function() {
-            openSocialLoginModal('Microsoft', 'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg', '#00A4EF');
+            openSocialLoginModal('Microsoft', 'Micro.png', '#00A4EF');
         });
     }
 
     if (appleLoginBtn) {
         appleLoginBtn.addEventListener('click', function() {
-            openSocialLoginModal('Apple', 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg', '#000000');
+            openSocialLoginModal('Apple', 'apple_logo.jpg', '#000000');
         });
     }
 
