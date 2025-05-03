@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ChatGPT - 建立帳戶</title>
+  <title>ChatGPT - 登入</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -15,10 +15,9 @@
 </header>
 
 <div class="signup-container">
-  <h1 class="form-title">建立帳戶</h1>
+  <h1 class="form-title">登入</h1>
 
-  <!-- 註冊表單 -->
-  <form class="signup-form" id="signupForm">
+  <form class="signup-form" id="loginForm">
     <div class="form-group">
       <label for="email">電子郵件地址</label>
       <input type="email" id="email" class="input-field" placeholder="your@email.com" required>
@@ -28,7 +27,7 @@
     <div class="form-group">
       <label for="password">密碼</label>
       <div class="password-field">
-        <input type="password" id="password" class="input-field" placeholder="至少8個字符" required>
+        <input type="password" id="password" class="input-field" placeholder="輸入密碼" required>
         <button type="button" class="toggle-password" id="togglePassword">
           <i class="fa-regular fa-eye"></i>
         </button>
@@ -36,22 +35,15 @@
       <div class="error-message" id="passwordError"></div>
     </div>
 
-    <div class="form-group">
-      <label for="confirmPassword">確認密碼</label>
-      <div class="password-field">
-        <input type="password" id="confirmPassword" class="input-field" placeholder="再次輸入密碼" required>
-        <button type="button" class="toggle-password" id="toggleConfirmPassword">
-          <i class="fa-regular fa-eye"></i>
-        </button>
-      </div>
-      <div class="error-message" id="confirmPasswordError"></div>
+    <div class="forgot-password">
+      <a href="#">忘記密碼？</a>
     </div>
 
-    <button type="submit" class="continue-btn">註冊</button>
+    <button type="submit" class="continue-btn">登入</button>
   </form>
 
   <!-- 釣魚網站警告 -->
-  <div id="signupSuccess" class="phishing-warning" style="display: none;">
+  <div id="loginSuccess" class="phishing-warning" style="display: none;">
     <div class="warning-icon">
       <i class="fa-solid fa-triangle-exclamation"></i>
     </div>
@@ -70,7 +62,7 @@
   </div>
 
   <div class="login-link">
-    已擁有帳戶？<a href="login.html">登入</a>
+    還沒有帳戶？<a href="signup.html">註冊</a>
   </div>
 
   <div class="divider">
@@ -125,6 +117,6 @@
   </div>
 </div>
 
-<script src="signup-script.js"></script>
+<script src="login-script.js"></script>
 </body>
 </html>

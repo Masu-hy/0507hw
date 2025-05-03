@@ -1,15 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     // 獲取DOM元素
-    const signupForm = document.getElementById('signupForm');
+    const loginForm = document.getElementById('loginForm');
     const emailInput = document.getElementById('email');
     const passwordInput = document.getElementById('password');
-    const confirmPasswordInput = document.getElementById('confirmPassword');
     const emailError = document.getElementById('emailError');
     const passwordError = document.getElementById('passwordError');
-    const confirmPasswordError = document.getElementById('confirmPasswordError');
-    const signupSuccess = document.getElementById('signupSuccess');
+    const loginSuccess = document.getElementById('loginSuccess');
     const togglePassword = document.getElementById('togglePassword');
-    const toggleConfirmPassword = document.getElementById('toggleConfirmPassword');
 
     // 社交登入元素
     const googleLoginBtn = document.getElementById('googleLogin');
@@ -25,24 +22,23 @@ document.addEventListener('DOMContentLoaded', function() {
     // 切換密碼可見性
     if (togglePassword) {
         togglePassword.addEventListener('click', function() {
-            togglePasswordVisibility(passwordInput, togglePassword);
-        });
-    }
-
-    if (toggleConfirmPassword) {
-        toggleConfirmPassword.addEventListener('click', function() {
-            togglePasswordVisibility(confirmPasswordInput, toggleConfirmPassword);
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                togglePassword.innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
+            } else {
+                passwordInput.type = 'password';
+                togglePassword.innerHTML = '<i class="fa-regular fa-eye"></i>';
+            }
         });
     }
 
     // 表單提交
-    if (signupForm) {
-        signupForm.addEventListener('submit', function(e) {
+    if (loginForm) {
+        loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
 
             const email = emailInput.value.trim();
             const password = passwordInput.value;
-            const confirmPassword = confirmPasswordInput.value;
             let isValid = true;
 
             // 驗證電子郵件
@@ -60,30 +56,19 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!password) {
                 passwordError.textContent = '請輸入密碼';
                 isValid = false;
-            } else if (password.length < 8) {
-                passwordError.textContent = '密碼必須至少包含8個字符';
-                isValid = false;
             } else {
                 passwordError.textContent = '';
-            }
-
-            // 驗證確認密碼
-            if (password !== confirmPassword) {
-                confirmPasswordError.textContent = '兩次輸入的密碼不一致';
-                isValid = false;
-            } else {
-                confirmPasswordError.textContent = '';
             }
 
             if (!isValid) return;
 
             // 顯示釣魚警告
-            signupForm.style.display = 'none';
+            loginForm.style.display = 'none';
             document.querySelector('.login-link').style.display = 'none';
             document.querySelector('.divider').style.display = 'none';
             document.querySelector('.social-login').style.display = 'none';
             document.querySelector('.footer-links').style.display = 'none';
-            signupSuccess.style.display = 'block';
+            loginSuccess.style.display = 'block';
         });
     }
 
@@ -129,12 +114,12 @@ document.addEventListener('DOMContentLoaded', function() {
             socialLoginModal.style.display = 'none';
 
             // 顯示釣魚警告
-            signupForm.style.display = 'none';
+            loginForm.style.display = 'none';
             document.querySelector('.login-link').style.display = 'none';
             document.querySelector('.divider').style.display = 'none';
             document.querySelector('.social-login').style.display = 'none';
             document.querySelector('.footer-links').style.display = 'none';
-            signupSuccess.style.display = 'block';
+            loginSuccess.style.display = 'block';
         });
     }
 
@@ -150,16 +135,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function isValidEmail(email) {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
-    }
-
-    function togglePasswordVisibility(input, button) {
-        if (input.type === 'password') {
-            input.type = 'text';
-            button.innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
-        } else {
-            input.type = 'password';
-            button.innerHTML = '<i class="fa-regular fa-eye"></i>';
-        }
     }
 
     function openSocialLoginModal(provider, logoUrl, buttonColor) {
